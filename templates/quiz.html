@@ -21,6 +21,12 @@
             width: 100%;
         }
 
+        .question-text {
+            white-space: pre-line;   /* preserves \n line breaks */
+            font-size: 1.05em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+}
         .result {
             font-weight: bold;
             margin: 15px 0;
@@ -37,7 +43,7 @@
             white-space: pre-line;
         
             /*SCROLLABLE STYLING FOR LENGTHY EXPLANATIONS*/
-            max-height: 250px;      /* adjust height as needed */
+            max-height: 200px;      /* adjust height as needed */
             overflow-y: auto;       /* vertical scroll if content is too long */
         }
 
@@ -76,7 +82,9 @@
     Question {{ current_number }} of {{ total_questions }}
     </p>
 
-    <h2>{{ question.question }}</h2>
+    <div class="question-text">
+        {{ question.question }}
+    </div>
 
     <!-- RESULT -->
     {% if answered %}

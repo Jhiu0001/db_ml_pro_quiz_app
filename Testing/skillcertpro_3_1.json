@@ -1,0 +1,55 @@
+[
+  {
+    "question_id":"skillcertpro_e3_q1",
+    "question": "You are working with multiple machine learning models built using different frameworks (e.g., TensorFlow, Scikit-learn, and PyTorch). You want to deploy these models using MLflow. Which of the following statements best describes MLflow Flavors and their benefits in this scenario?",
+    "type":"MC",
+    "choices": [
+      {"id": 0, "text": "MLflow Flavors are a type of data augmentation method used to enrich datasets during training."},
+      {"id": 1, "text": "MLflow Flavors provide a unified interface for running different types of models built in various frameworks, enabling deployment in diverse environments."},
+      {"id": 2, "text": "MLflow Flavors allow you to convert models between different frameworks, such as converting a TensorFlow model into a PyTorch model."},
+      {"id": 3, "text": "MLflow Flavors optimize model hyperparameters automatically during the training process."}
+    ],
+    "ans_id":1,
+    "explanation":"MLflow Flavors provide a unified interface for running different types of models built in various frameworks, enabling deployment in diverse environments.\n\n-Framework independence: You can package and deploy models written in different frameworks without worrying about specific deployment configurations. \n-Reusability: Flavors help in versioning and managing models across diverse environments and use cases. \n-Consistency: By using MLflow flavors, organizations can standardize how models are handled across teams, making collaboration and deployment more efficient."
+  },
+  {
+    "question_id":"skillcertpro_e3_q2",
+    "question": "You have a machine learning model already registered in the Databricks Model Registry. The model has undergone several iterations, each registered as a new version. The team wants to track critical information about each version, such as its training dataset and evaluation metrics. You need to add this metadata in a way that it is accessible for both auditing and future model improvement. What are the appropriate ways to add and manage metadata for a specific model version in Databricks? (Select two)",
+    "type":"MS",
+    "choices": [
+      {"id": 0, "text": "Attach tags with metadata such as 'Training Dataset' and 'Accuracy' to the model version using mlflow.set_tag()."},
+      {"id": 1, "text": "Leverage mlflow.log_model() to log the model along with its metadata in a single step."},
+      {"id": 2, "text": "Edit the model versions 'Description' field directly in the Model Registry UI to add training and evaluation information."},
+      {"id": 3, "text": "Run a new MLflow experiment and use mlflow.log_params() to log the metadata that will be automatically added to the new model version."},
+      {"id": 4, "text": "Use the mlflow.update_registered_model() method to append metadata to the model version."}
+    ],
+    "ans_ids":[0,2],
+    "explanation":"Attach tags with metadata such as 'Training Dataset' and 'Accuracy' to the model version using mlflow.set_tag().\n MLflow tags provide a flexible way to add key-value metadata to various MLflow objects, including registered model versions. Using mlflow.set_tag() allows you to programmatically attach information like the training dataset used, evaluation metrics, or any other relevant details directly to a specific version of the model. These tags are easily viewable in the Model Registry UI and accessible via the MLflow API for auditing and analysis.\n\n Edit the model versions 'Description' field directly in the Model Registry UI to add training and evaluation information.\nThe Model Registry UI provides a 'Description' field for each registered model version. This field allows users to manually enter free-form text to document important details about the model version, such as the training process, evaluation results, or any other relevant context. While not as structured as tags, it offers a straightforward way to add and view descriptive metadata directly within the UI."
+  },
+  {
+    "question_id":"skillcertpro_e3_q3",
+    "question": "You are tasked with converting a batch inference pipeline that predicts equipment failures based on sensor data collected from factory machines. The batch pipeline currently processes data collected every day and outputs predictions for potential equipment failures. To improve response times, the company wants to switch to a streaming deployment where predictions are generated as sensor data flows continuously into the system. The current pipeline uses daily averages, maximum values, and rolling statistics as features for model inference. Which of the following strategies is most appropriate for converting the batch pipeline into a streaming deployment?",
+    "type":"MC",
+    "choices": [
+      {"id": 0, "text": "Use a micro-batch approach to compute rolling statistics at fixed intervals and feed them into the streaming model."},
+      {"id": 1, "text": "Drop the rolling statistics and compute only real-time averages and maximum values on each sensor event."},
+      {"id": 2, "text": "Use structured streaming with stateful operations to track sensor data and compute rolling statistics in real time."},
+      {"id": 3, "text": "Continue using the batch pipeline but execute it more frequently using a cron job to simulate streaming behavior."}
+    ],
+    "ans_id":2,
+    "explanation":" Use structured streaming with stateful operations to track sensor data and compute rolling statistics in real time.\n\n Structured Streaming in Databricks provides the capability for stateful stream processing. To compute rolling statistics (like rolling averages, maximums) in a streaming environment, you need to maintain state across the incoming data stream. Stateful operations in Structured Streaming allow you to track data over time windows and perform calculations like rolling averages, maximums, and other aggregations in a continuous and real-time manner. This approach allows you to replicate the feature engineering done in the batch pipeline (using rolling statistics) in the streaming pipeline, ensuring the model receives similar input features for inference in real time."
+  },
+  {
+    "question_id":"skillcertpro_e3_q4",
+    "question": "You are working as a data scientist at a company using Databricks and MLflow to track machine learning experiments. You have trained multiple versions of a regression model to predict housing prices and logged them as different runs in an MLflow experiment. After several iterations, you want to compare the performance of these models based on their logged metrics and extract the metadata to visualize their parameters and evaluate which version should be deployed. You write the following code to retrieve the logged models:\nimport mlflow\nfrom mlflow.tracking import MlflowClient\n# Initialize MLflow client\nclient = MlflowClient()\n# Fetch experiment by name\nexperiment = client.get_experiment_by_name('Housing Price Prediction')\n# Fetch all runs in the experiment\nruns = client.search_runs(experiment.experiment_id)\n# Filter for best-performing run based on R2 score\nbest_run = max(runs, key=lambda run: run.data.metrics['r2_score'])\n# Load model from best run\nmodel_uri = f'runs:/{best_run.info.run_id}/model'\nmodel = mlflow.pyfunc.load_model(model_uri)\nWhich of the following options best explains how the code works and whether it correctly retrieves and loads\nthe best-performing model based on the R2 score?",
+    "type":"MC",
+    "choices": [
+      {"id": 0, "text": "The code will throw an error when filtering runs by R2 score because the key 'r2_score' is not valid unless the metric is explicitly defined using a custom metric logger"},
+      {"id": 1, "text": "The code correctly retrieves all runs from the 'Housing Price Prediction' experiment and successfully loads the model from the run with the highest R2 score."},
+      {"id": 2, "text": "The code is incorrect because MLflow does not support the loading of models based on the R2 score from a run. Instead, you should load the model directly using the model's URI stored in the artifact location."},
+      {"id": 3, "text": "The code correctly retrieves all runs from the experiment, but it will fail because the search_runs() method returns an iterator, which does not support the max function."}
+    ],
+    "ans_id":1,
+    "explanation":"B. The code correctly retrieves all runs from the “Housing Price Prediction“ experiment and successfully loads the model from the run with the highest R2 score.\n\n The provided code snippet is logically sound for retrieving and loading the best-performing model based on the logged 'r2_score' metric.It correctly initializes the MlflowClient to interact with the MLflow tracking server.It fetches the experiment ID using the experiment name.client.search_runs(experiment.experiment_id) will indeed return a list of Run objects corresponding to all the runs within the specified experiment. Each Run object contains information about the run, including its parameters, metrics, tags, and artifact locations.The max() function with the key argument iterates through the list of Run objects. For each run, run.data.metrics['r2_score'] accesses the value of the 'r2_score' metric logged during that run. The max() function then returns the Run object that has the highest value for this metric.The model_uri is correctly constructed using the runs:/ format, which is a valid way to specify the location of a model logged within an MLflow run.mlflow.pyfunc.load_model(model_uri) is the standard way to load a Python function model (which is a common format for MLflow models) from the specified URI. Therefore, assuming that the 'r2_score' metric was correctly logged for each run in the experiment, the code will successfully identify the run with the highest R2 score and load the corresponding model."
+  }
+]
