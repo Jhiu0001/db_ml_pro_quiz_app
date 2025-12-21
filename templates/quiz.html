@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .quiz-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            max-width: 650px;
+            width: 100%;
+        }
+
+        .result {
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .correct { color: green; }
+        .incorrect { color: red; }
+
+        .explanation {
+            margin-top: 10px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 5px solid #ff4d4d;
+            white-space: pre-line;
+        
+            /*SCROLLABLE STYLING FOR LENGTHY EXPLANATIONS*/
+            max-height: 250px;      /* adjust height as needed */
+            overflow-y: auto;       /* vertical scroll if content is too long */
+        }
+
+        label {
+            display: block;
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .choice-text {
+            white-space: pre-line;   /* preserves \n line breaks */
+            font-family: monospace;  /* code-style readability */
+            font-size: 0.95em;
+            margin-top: 4px;
+}
+    </style>
+</head>
+
+<body>
+<div class="quiz-container">
+    <p style="font-size: 0.9em; color: #777; margin-bottom: 5px;">
+    Question {{ current_number }} of {{ total_questions }}
+    </p>
+
+    <h2>{{ question.question }}</h2>
+
+    <!-- RESULT -->
+    {% if answered %}
+        {% if is_correct %}
+            <p class="result correct">✅ Correct</p>
+        {% else %}
+            <p class="result incorrect">❌ Incorrect</p>
+            <div class="explanation">
+                {{ question.explanation }}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <!-- FORM -->
+    <form method="POST">
+
+        <!-- Multi-Select instruction -->
+        {% if question.type == 'MS' %}
+            <p style="font-size: 0.9em; color: #555;">Select all that apply.</p>
+        {% endif %}
+
+
+        {% for label, choice in labeled_choices.items() %}
+            <label>
+                <input
+                    type="{% if question.type == 'MC' %}radio{% else %}checkbox{% endif %}"
+                    name="choice"
+                    value="{{ label }}"
+                    {% if answered %}disabled{% endif %}
+                    {% if question.type == 'MC' %}required{% endif %}
+                >
+                <strong>{{ label }}.</strong>
+                <div class="choice-text">{{ choice.text }}</div>
+            </label>
+        {% endfor %}
+
+        {% if not answered %}
+            <button type="submit">Submit Answer</button>
+        {% else %}
+            <button type="submit" name="next">Next Question →</button>
+        {% endif %}
+    </form>
+
+    <!-- QUESTION ID FOR AUDITING -->
+    <p style="font-size: 0.8em; color: gray; margin-top: 10px;">
+        Question ID: {{ question.question_id }}
+    </p>
+</div>
+
+

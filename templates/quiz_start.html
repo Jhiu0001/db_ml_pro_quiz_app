@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .start-container {
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        .hint {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+<div class="start-container">
+    <h2>📝 Configure Your Quiz</h2>
+
+    <form method="POST">
+
+        <!-- Number of questions -->
+        <div class="form-group">
+            <label for="num_questions">Number of questions</label>
+            <input
+                type="number"
+                id="num_questions"
+                name="num_questions"
+                value="50"
+                min="1"
+                required
+            >
+            <div class="hint">
+                Default is 50. If fewer questions exist, all available questions will be used.
+            </div>
+        </div>
+
+        <!-- Random order toggle -->
+        <div class="form-group">
+            <label>Question order</label>
+            <div class="checkbox-group">
+                <input
+                    type="checkbox"
+                    id="randomize"
+                    name="randomize"
+                    checked
+                >
+                <label for="randomize" style="font-weight: normal;">
+                    Randomize question order
+                </label>
+            </div>
+            <div class="hint">
+                Uncheck to present questions sequentially (useful for review and validation).
+            </div>
+        </div>
+
+        <button type="submit">Start Quiz</button>
+
+    </form>
+</div>
+</body>
+</html>
