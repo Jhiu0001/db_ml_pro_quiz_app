@@ -11,8 +11,11 @@ app.secret_key = "your-secret-key"
 # Load questions from test bank (ONCE)
 # ----------------------------------------------------
 
-BANK_DIR = "Testing"
-#BANK_DIR = "test_bank"
+# Absolute path to the folder where this project lives
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+BANK_DIR = os.path.join(BASE_DIR, "Testing") #Switch as necessary
+#BANK_DIR = os.path.join(BASE_DIR, "test_bank") #Switch as necessary
 
 all_questions = []
 
