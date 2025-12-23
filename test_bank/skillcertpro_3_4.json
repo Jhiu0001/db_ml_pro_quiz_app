@@ -76,7 +76,7 @@
       {"id": 2, "text": "with mlflow.start_run():\nmlflow.log_param('alpha', 0.5)\nmlflow.log_metric('accuracy', 0.95)\nmlflow.log_model('model.pkl', artifact_path='model')"},
       {"id": 3, "text": "mlflow.run():\nmlflow.log_param('alpha', 0.5)\nmlflow.log_metric('accuracy', 0.95)\nmlflow.save_model('model.pkl', 'model')"}
     ],
-    "ans_id":-1,
+    "ans_id":2,
     "explanation":"with mlflow.start_run():\nmlflow.log_param('alpha', 0.5)\nmlflow.log_metric('accuracy', 0.95)\nmlflow.log_model('model.pkl', artifact_path='model')\n\n* 'with mlflow.start_run():' initiates a new MLflow run. All subsequent logging calls within this block will be associated with this specific run. This is essential for organizing and tracking individual model training attempts.\n* 'mlflow.log_param('alpha', 0.5)' correctly logs a single hyperparameter ('alpha' with a value of 0.5) for this run.\n* 'mlflow.log_metric('accuracy', 0.95)' correctly logs a single evaluation metric ('accuracy' with a value of 0.95) for this run.\n* 'mlflow.sklearn.log_model(model, artifact_path='model')' is the correct function (assuming you are using a scikit-learn model) to log the trained model as an artifact. The 'artifact_path' specifies a subdirectory within the run's artifact storage where the model will be saved. For other model types (e.g., TensorFlow, PyTorch), you would use the corresponding 'mlflow..log_model()' function."
   },
   {

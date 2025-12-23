@@ -126,7 +126,7 @@
       {"id": 2, "text": "Calculate the percentage of missing values and track unique categories over time"},
       {"id": 3, "text": "Use the Z-test to compare means of categories"}
     ],
-    "ans_id":-1,
+    "ans_id":2,
     "explanation":"Calculate the percentage of missing values and track unique categories over time\n\nThis approach directly addresses both the data quality issue (missing values) and the potential for drift in the categorical feature.\n-Percentage of Missing Values: Tracking the percentage of missing values over time will help you identify if the data quality is deteriorating. A sudden increase in missing values could indicate a problem in the data pipeline.\n-Tracking Unique Categories: Monitoring the set of unique categories and their proportions over time can reveal drift. New categories might appear, existing categories might disappear or become underrepresented, indicating a shift in the data distribution."
   }
 ]

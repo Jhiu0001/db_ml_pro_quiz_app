@@ -14,14 +14,14 @@ app.secret_key = "your-secret-key"
 # Absolute path to the folder where this project lives
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-BANK_DIR = os.path.join(BASE_DIR, "Testing") #Switch as necessary
+BANK_DIR = os.path.join(BASE_DIR, "user_testing") #Switch as necessary
 #BANK_DIR = os.path.join(BASE_DIR, "test_bank") #Switch as necessary
 
 all_questions = []
 
 for filename in sorted(os.listdir(BANK_DIR)):
     if filename.endswith(".json"):
-        with open(os.path.join(BANK_DIR, filename), "r") as f:
+        with open(os.path.join(BANK_DIR, filename), "r", encoding="utf-8") as f:
             all_questions.extend(json.load(f))
 
 # Ensure unique question_id

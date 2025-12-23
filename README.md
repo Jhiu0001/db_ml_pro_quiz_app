@@ -1,14 +1,19 @@
 # Databricks Machine Learning Professional Quiz App
-# DBML_PRO_Quiz.v0.1.2 - James Hiu - Dec.22.2025
+# DBML_PRO_Quiz.v0.1.3 - James Hiu - Dec.22.2025
 
 A Flask-based quiz application designed to deliver structured, repeatable quizzes from JSON-based test banks.  
 The app supports both multiple-choice and multi-select questions, deterministic answer shuffling, and configurable quiz lengths.
 
+Thank you Ahmed Abrar, Corbin Hudson, Rob Young
+
 ---
 
-## Latest Updates v0.1.2
+## Latest Updates v0.1.3
 
 - Content Updates: Completed adding SkillCertPro Exam3 to the test bank.
+- Content Updates: Added Udemy exam2 to the test bank
+- Modified quiz.py to use utf-8 encoding which addresses issues such as
+    - smart quotes, en-dash/em-dash
 
 ---
 
