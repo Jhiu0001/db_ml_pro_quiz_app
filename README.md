@@ -1,5 +1,5 @@
 # Databricks Machine Learning Professional Quiz App
-# DBML_PRO_Quiz.v0.1.3 - James Hiu - Dec.22.2025
+# DBML_PRO_Quiz.v0.1.4 - James Hiu - Dec.22.2025
 
 A Flask-based quiz application designed to deliver structured, repeatable quizzes from JSON-based test banks.  
 The app supports both multiple-choice and multi-select questions, deterministic answer shuffling, and configurable quiz lengths.
@@ -8,12 +8,9 @@ Thank you Ahmed Abrar, Corbin Hudson, Rob Young
 
 ---
 
-## Latest Updates v0.1.3
+## Latest Updates v0.1.4
 
-- Content Updates: Completed adding SkillCertPro Exam3 to the test bank.
-- Content Updates: Added Udemy exam2 to the test bank
-- Modified quiz.py to use utf-8 encoding which addresses issues such as
-    - smart quotes, en-dash/em-dash
+- Content Updates: Completed adding Udemy Exam 2 to the test bank
 
 ---
 
@@ -41,7 +38,7 @@ db_ml_pro_quiz_app/
 ├─ test_bank/ # JSON test banks
 │ ├─ Q1-Q10.json # questions are sourced from paid mock exams provider sites
 │ ├─ Q11-Q20.json # I try to keep it to 10 questions per file for readability
-├─ Testing/
+├─ user_testing/
 │ ├─ Q21-Q30.json # New questions go into this folder then corresponding directory lines are commented/uncommented in the quiz.py
 │ ├─ Q31-Q40.json # I would be editing for typos, and visual presentation (UI/UX) of new questions before moving files from Testing to test_bank.
 
