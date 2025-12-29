@@ -41,9 +41,9 @@ def start_quiz():
 
         # ----- Parse inputs safely -----
         try:
-            requested = int(request.form.get("num_questions", 50))
+            requested = int(request.form.get("num_questions", 60))
         except ValueError:
-            requested = 50
+            requested = 60
 
         requested = max(1, requested)
 
