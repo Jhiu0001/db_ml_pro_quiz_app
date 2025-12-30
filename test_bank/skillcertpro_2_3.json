@@ -1,7 +1,7 @@
 [
   {
     "question_id":"skillcertpro_e2_q21",
-    "question": "A logistics company is deploying a machine learning model to predict delivery delays in real time based on incoming sensor data from trucks. The data stream includes information on vehicle location, weather conditions, and traffic patterns. The model s predictions must be combined with business rules that include customer SLAs (Service Level Agreements) and geographical restrictions. These rules are complex and involve multi-level conditions, including handling exceptions for high-priority deliveries. Why is it critical to handle such complex business logic within the streaming pipeline instead of deferring to a downstream system for post-processing?",
+    "question": "A logistics company is deploying a machine learning model to predict delivery delays in real time based on incoming sensor data from trucks. The data stream includes information on vehicle location, weather conditions, and traffic patterns. The model's predictions must be combined with business rules that include customer SLAs (Service Level Agreements) and geographical restrictions. These rules are complex and involve multi-level conditions, including handling exceptions for high-priority deliveries. Why is it critical to handle such complex business logic within the streaming pipeline instead of deferring to a downstream system for post-processing?",
     "type":"MC",
     "choices": [
       {"id": 0, "text": "To increase the overall throughput of the streaming system by removing downstream complexity"},
@@ -45,8 +45,7 @@
     "choices": [
       {"id": 0, "text": "Attach a separate text file containing metadata to the registered model in the MLflow UI."},
       {"id": 1, "text": "Use the MLflow Model Registry API to log metadata as key-value tags for each registered model."},
-      {"id": 2, "text": "The MLflow Model Registry API allows you to add tags to models in a structured way, making it easy to track and query metadata across multiple models."},
-      {"id": 3, "text": "Add metadata using the Databricks workspace CLI, and then sync the changes with MLflow."}
+      {"id": 2, "text": "Add metadata using the Databricks workspace CLI, and then sync the changes with MLflow."}
     ],
     "ans_id":1,
     "explanation":" Use the MLflow Model Registry API to log metadata as key-value tags for each registered model. \n\nAPI support: The MLflow Model Registry API indeed provides functionalities to interact with registered models programmatically.\nKey-value tagging: The API allows you to add metadata as key-value tags to registered models and specific model versions. This approach ensures that all model-related metadata is stored alongside the model in the registry, making it easily accessible for tracking and management. Tags are directly associated with the model within the MLflow tracking system"
@@ -80,7 +79,7 @@
   },
   {
     "question_id":"skillcertpro_e2_q27",
-    "question": "A financial institution has deployed a credit scoring model that predicts the likelihood of loan default based on various customer features (income, credit history, age, etc.). Six months after deployment, the data science team notices that the distribution of several input features has shifted significantly compared to the original training data, but the model s predictions seem to be performing as expected. What type of drift is most likely occurring, and what should the team prioritize to ensure the model continues to perform well?",
+    "question": "A financial institution has deployed a credit scoring model that predicts the likelihood of loan default based on various customer features (income, credit history, age, etc.). Six months after deployment, the data science team notices that the distribution of several input features has shifted significantly compared to the original training data, but the model's predictions seem to be performing as expected. What type of drift is most likely occurring, and what should the team prioritize to ensure the model continues to perform well?",
     "type":"MC",
     "choices": [
       {"id": 0, "text": "Feature drift is most likely occurring, and the team should prioritize investigating which features have drifted and evaluate whether retraining is necessary."},

@@ -98,7 +98,7 @@
     "choices": [
       {"id": 0, "text": "Monitoring feature importance scores over time and comparing them with the training dataset."},
       {"id": 1, "text": "Monitoring the statistical mean, standard deviation, and skewness of numeric features across time windows."},
-      {"id": 2, "text": "Monitoring the mean and variance of the model s prediction errors for potential feature drift."},
+      {"id": 2, "text": "Monitoring the mean and variance of the model's prediction errors for potential feature drift."},
       {"id": 3, "text": "Monitoring the p-values of feature coefficients from the model's training to detect significant changes in feature distribution."}
     ],
     "ans_id":1,

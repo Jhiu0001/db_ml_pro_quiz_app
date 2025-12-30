@@ -99,7 +99,7 @@
   },
   {
     "question_id":"udemy_e2_q18",
-    "question": "A machine learning engineer is incorporating the following code block into a batch deployment pipeline: inference_df = (spark.read .schema(schema) .format('delta') .table ('inference') ) predictions_df = inference_df.withColumn( 'prediction', predict(*inference_df.columns) ) Which of the following modifications is necessary to ensure this code block functions properly when the inference table is a stream source?",
+    "question": "A machine learning engineer is incorporating the following code block into a batch deployment pipeline:\n\n inference_df=(spark.read.schema(schema).format('delta').table('inference'))\n predictions_df = inference_df.withColumn('prediction',predict(*inference_df.columns))\n\n Which of the following modifications is necessary to ensure this code block functions properly when the inference table is a stream source?",
     "type":"MC",
     "choices": [
       {"id": 0, "text": "Replace 'inference' with the path to the location of the Delta table."},

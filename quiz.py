@@ -14,8 +14,8 @@ app.secret_key = "your-secret-key"
 # Absolute path to the folder where this project lives
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-BANK_DIR = os.path.join(BASE_DIR, "user_testing") #Switch as necessary
-#BANK_DIR = os.path.join(BASE_DIR, "test_bank") #Switch as necessary
+#BANK_DIR = os.path.join(BASE_DIR, "user_testing") #Switch as necessary
+BANK_DIR = os.path.join(BASE_DIR, "test_bank") #Switch as necessary
 
 all_questions = []
 

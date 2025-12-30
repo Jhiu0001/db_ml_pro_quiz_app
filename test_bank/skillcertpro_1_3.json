@@ -107,7 +107,7 @@
   },
   {
     "question_id":"skillcertpro_e1_q29",
-    "question": "text",
+    "question": "You are managing a machine learning pipeline for a recommendation system. Your models are registered in the Databricks Model Registry, and you need to create a job that triggers automatically when a model moves from the staging stage to production. This job will initiate an automated process to deploy the model in a live environment. Which of the following are key steps required to create a job that triggers upon model stage transitions in the Databricks Model Registry? (Select two)",
     "type":"MS",
     "choices": [
         {"id": 0, "text": "Enable Auto-Retesting on Every Stage Transition"},
